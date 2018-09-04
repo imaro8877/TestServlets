@@ -6,7 +6,7 @@
 </head>
 <body>
  
-<form:form modelAttribute="testvo" action="join" method="POST">
+<form:form modelAttribute="testvo" action="login" method="POST">
     <p>
         ID<br/>
         <form:input path="id"/>
