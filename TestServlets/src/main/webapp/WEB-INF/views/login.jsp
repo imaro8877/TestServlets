@@ -26,14 +26,15 @@ p {
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<form:form modelAttribute = "testvo" action="loginform" method = "POST" >
-<h1>${testvo.id}</br>
-${testvo.pwd}</br>
-${testvo.name}</br>
-${testvo.phone}</br>
-${testvo.postno}</br></h1>
+<c:forEach items="${testvo}" var="testlist"  varStatus = "status">
+${testlist.id} ${testlist.pwd} ${testlist.name} ${testlist.phone} ${testlist.postno}  </br>
+<%-- ${testvo.id} ${testvo.pwd} ${testvo.name} ${testvo.phone} ${testvo.postno} </br> --%>
+</c:forEach>
+
+<c:forEach var="i" begin="1" end="100" varStatus = "status">
+ Line ${status.current} ${i} ${status.begin} ${status.count} ${status.first} ${status.count} ${status.index} <br/>
+</c:forEach>
 
 <input type = "submit" value = "확인">
-</form:form>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package com.imaro.myapp.controller;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -37,6 +39,34 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Locale locale, Model model) {
 		logger.info("Welcome login! The client locale is {}.", locale);
+		List<testVO> testList = new ArrayList<testVO>();
+		testVO testvo = new testVO();
+		testvo.setId("id");
+		testvo.setPwd("pwd");
+		testvo.setName("name");
+		testvo.setPhone("phone");
+		testvo.setPostno("postno");
+		testList.add(testvo);
+		
+		testVO testvo1 = new testVO();
+		testvo1.setId("id1");
+		testvo1.setPwd("pwd1");
+		testvo1.setName("name1");
+		testvo1.setPhone("phone1");
+		testvo1.setPostno("postno1");
+		testList.add(testvo1);
+
+		testVO testvo2 = new testVO();
+		
+		testvo2.setId("id3");
+		testvo2.setPwd("pwd3");
+		testvo2.setName("name3");
+		testvo2.setPhone("phone3");
+		testvo2.setPostno("postno3");
+		testList.add(testvo2);
+
+		model.addAttribute("testvo", testList);
+		
 		return "login";
 	}
 
@@ -52,8 +82,6 @@ public class HomeController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(testVO testvo, Locale locale, Model model) {
 		logger.info("Welcome join! The client locale is {}.", locale);
-		System.out.println(testvo.toString());
-		model.addAttribute("testvo", testvo);
 		return "join";
 	}
 
